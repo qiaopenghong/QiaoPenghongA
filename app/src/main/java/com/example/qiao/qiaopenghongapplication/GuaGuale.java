@@ -1,8 +1,6 @@
 package com.example.qiao.qiaopenghongapplication;
-
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -12,7 +10,9 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import static android.graphics.Bitmap.Config.*;
+
+import static android.graphics.Bitmap.Config.ARGB_4444;
+import static android.graphics.Bitmap.Config.ARGB_8888;
 /**
  * Created by qiao on 2016/10/31.
  */
@@ -48,12 +48,7 @@ public class GuaGuale extends View {
         // 设置混合模式为DST_IN
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         // 设置画笔风格为描边
-        mPaint.setStyle(Paint.Style.STROKE);
-        // 设置路径结合处样式
-        mPaint.setStrokeJoin(Paint.Join.ROUND);
-        // 设置笔触类型
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
-        // 设置描边宽度
+
         mPaint.setStrokeWidth(50);
 
         // 生成前景图Bitmap
@@ -63,7 +58,7 @@ public class GuaGuale extends View {
         mCanvas = new Canvas(fgBitmap);
         // 拿到灰色背景图
         // 拿到灰色背景图
-        frontBitmap = CreateBitmap(Color.GRAY, getWidth(), getHeight());
+        frontBitmap = CreateBitmap(Color.GRAY,getWidth(), getHeight());
         // 绘制灰色背景图
         mCanvas.drawBitmap(frontBitmap, 0, 0, null);
     }
